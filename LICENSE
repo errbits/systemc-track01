@@ -1,0 +1,51 @@
+ErrBits Course Material Licence — SystemC Track 01 Graded Labs
+
+Copyright (c) 2025–2026 ErrBits.
+All rights reserved.
+
+This repository (the starter code, headers, Makefile, playground, task descriptions,
+dev-container configuration and documentation — together, the "Material") is proprietary.
+It is NOT open source. Making a copy with GitHub's "Use this template" button does not
+transfer any ownership and grants only the limited licence below.
+
+1. Licence granted
+   If you are an ErrBits learner with access to this track, ErrBits grants you a personal,
+   non-exclusive, non-transferable, revocable licence to copy the Material into ONE
+   repository under your own GitHub account, and to use and modify it there, solely to
+   complete the ErrBits SystemC Track 01 graded labs.
+
+2. Keep your copy private
+   Your lab repository must stay private. Do not make it public, and do not add
+   collaborators to it.
+
+3. Not permitted without prior written authorisation from ErrBits
+   (a) redistributing, publishing, sharing, sublicensing, selling or renting the Material
+       or any part of it, in any form, on any medium or platform;
+   (b) publishing or sharing solutions to the graded tasks, including your own;
+   (c) using the Material, or anything derived from it, in any other course, training,
+       bootcamp, book, video, dataset or commercial product or service;
+   (d) using the Material to train, fine-tune or evaluate machine-learning models;
+   (e) removing or altering this notice or any copyright notice in the Material.
+
+4. Your code
+   The code you write in src/stepNN.cpp remains yours, subject to section 3(b). By pushing
+   to your lab repository while the ErrBits Grader app is installed on it, you allow ErrBits
+   to copy, store, compile and run that code to grade it, to show you your results, and to
+   check the integrity of submissions, as described in the ErrBits Privacy Policy.
+
+5. Third-party software
+   SystemC is (c) Accellera Systems Initiative and is licensed separately under the
+   Apache License 2.0. It is not part of the Material and this licence does not apply to it.
+
+6. Termination
+   This licence ends automatically if you breach it or when your access to the track ends.
+   You must then delete your copies of the Material. Sections 3, 6 and 8 survive.
+
+7. No warranty
+   The Material is provided "as is", without warranty of any kind.
+
+8. General
+   This licence is in addition to the ErrBits Terms of Service (https://errbits.com/terms.html),
+   which also apply, including the governing-law and jurisdiction clause.
+
+Permissions and licensing enquiries: legal@errbits.com

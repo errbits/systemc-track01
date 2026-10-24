@@ -7,7 +7,7 @@ and reports your score on GitHub and in the studio.
 ## 1 · Set up (once)
 
 1. **Use this template** (green button, top right) → **Create a new repository**
-   - Owner: your GitHub account · Name: `track01` · **Private** (recommended, so nobody copies your answers)
+   - Owner: your GitHub account · Name: `track01` · **Private** (required: see [LICENSE](LICENSE))
 2. Connect the **same GitHub account** in your [ErrBits profile](https://errbits.com/profile.html#github).
 3. Install the **ErrBits Grader** app on your new repository *(link coming soon)*.
 
@@ -67,3 +67,10 @@ Your best score counts. Push again as often as you like (rate-limited to keep th
 - Keep the function and class signatures exactly as declared in `include/lab.h`.
 - The hidden tests use values personal to you, so copying someone else's answers won't pass.
 - Work only in your own repository, from the GitHub account connected to your ErrBits profile.
+- Keep the repository private and don't share your solutions.
+
+## License
+
+© 2025–2026 ErrBits. All rights reserved. This is proprietary course material, not open source.
+You may use it only to complete the ErrBits graded labs in your own private repository.
+Redistribution, publishing or reuse without written permission is not allowed. See [LICENSE](LICENSE).
