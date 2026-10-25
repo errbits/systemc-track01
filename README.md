@@ -7,14 +7,21 @@ and reports your score on GitHub and in the studio.
 ## 1 · Set up (once)
 
 1. **Use this template** (green button, top right) → **Create a new repository**
-   - Owner: your GitHub account · Name: `track01` · **Private** (required: see [LICENSE](LICENSE))
+   - Owner: **your own** GitHub account (not an organisation) · Name: anything, e.g. `track01` ·
+     **Private** (required: see [LICENSE](LICENSE))
 2. Connect the **same GitHub account** in your [ErrBits profile](https://errbits.com/profile.html#github).
-3. Install the **ErrBits Grader** app on your new repository *(link coming soon)*.
+3. Install the **ErrBits Grader** app: [github.com/apps/errbits-grader](https://github.com/apps/errbits-grader/installations/new)
+   → your account → **Only select repositories** → your new repo. It can only read your code
+   and post ✓/✗ on your commits; it never writes to your repo.
+
+Keep the file names (`src/stepNN.cpp`) and the function names as they are; the repo name doesn't matter.
 
 ## 2 · Open your workspace
 
 **Codespace (easiest):** in your repo, **Code → Codespaces → Create codespace on main**.
-SystemC 2.3.3 is already installed and the project builds automatically.
+SystemC 2.3.3 is already installed and the project builds automatically. Open a terminal with
+**Terminal → New Terminal** (or <kbd>Ctrl</kbd>+<kbd>`</kbd>): `make play` runs your code, and the
+`git` commands below submit it. You can also commit from the **Source Control** panel.
 Codespaces are free for personal accounts up to GitHub's monthly limit.
 
 **Local with Docker:**
@@ -49,6 +56,8 @@ make play STEP=05     # try step 05 (also 06, 07)
 The playground (`play/main.cpp`) is for you — edit it freely. It is **not** the grader.
 
 ## 4 · Submit
+
+In the Codespace (or your local) terminal:
 
 ```bash
 git add src/step05.cpp
