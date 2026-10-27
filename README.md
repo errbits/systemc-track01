@@ -24,6 +24,12 @@ SystemC 2.3.3 is already installed and the project builds automatically. Open a 
 `git` commands below submit it. You can also commit from the **Source Control** panel.
 Codespaces are free for personal accounts up to GitHub's monthly limit.
 
+**Create one Codespace and keep reusing it.** Next time, open the same one from
+**Code → Codespaces** (pick the existing name) or [github.com/codespaces](https://github.com/codespaces);
+don't click *Create* again. Each new Codespace uses more of your free storage and hours, and
+work you haven't pushed stays only in the one you wrote it in. It stops by itself after 30 minutes
+idle and keeps your files. Delete it only after everything is pushed.
+
 **Local with Docker:**
 ```bash
 docker run -it --rm -v "$PWD":/workspace ghcr.io/errbits/systemc:2.3.3 bash
@@ -45,15 +51,24 @@ make play SYSTEMC_HOME=/path/to/systemc-2.3.3
 | 06 · SC_THREAD vs SC_METHOD | `src/step06.cpp` | `AndGate`, `ResetSeq` |
 | 07 · Signals, Events & Timing | `src/step07.cpp` | `ClockGen::run()` |
 
-Each file has the task in its header comment; the full task is in the **Graded Task** tab of the studio.
+For each step, work in this loop from the terminal:
 
-```bash
-make build            # compile everything
-make play             # try steps 01 and 04
-make play STEP=05     # try step 05 (also 06, 07)
-```
+1. **Read the problem statement first:** the header comment in `src/stepNN.cpp`, and the full task
+   in the studio's **Graded Task** tab. Know what each function must return before you write it.
+2. **Solve only the problem:** fill in the function bodies in `src/stepNN.cpp`. Don't change
+   `include/lab.h`, the `Makefile` or other steps' files; the grader ignores them anyway.
+3. **Build and run, often:**
+   ```bash
+   make                  # compile everything (same as make build)
+   make play             # run steps 01 and 04
+   make play STEP=05     # run step 05 (also 06, 07)
+   make clean && make    # fresh rebuild if errors look stale or odd
+   ```
+   Fix every compiler error and warning, then check the printed output against the task.
+4. **Submit** (section 4) once `make play` looks right. Read the ✓/✗ test names, fix, push again.
 
-The playground (`play/main.cpp`) is for you — edit it freely. It is **not** the grader.
+The playground (`play/main.cpp`) is for you — edit it freely. It is **not** the grader: hidden
+tests check more cases, so think about edge cases the statement mentions.
 
 ## 4 · Submit
 
