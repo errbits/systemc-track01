@@ -59,3 +59,28 @@ SC_MODULE(ClockGen) {
     }
     void run();                                       // step07.cpp
 };
+
+// ── Step 11 · Capstone (01+ Complete) — HM-10 SYS_TICK timer ─────────────────
+// Datasheet behaviour, evaluated on every rising edge of clk:
+//   rst = 1           -> count_ = 0, div_ = 0, irq = 0          (synchronous reset)
+//   en  = 0           -> hold everything, irq = 0
+//   en  = 1           -> irq = 0; div_ counts edges 0..prescale; when div_ == prescale it
+//                        wraps to 0 and the counter TICKS:
+//                          count_ == compare -> count_ = 0, irq = 1 for this clock only
+//                          otherwise         -> count_ + 1
+//   count is driven with count_ after every edge.
+SC_MODULE(SysTick) {
+    sc_core::sc_in<bool>                    clk{"clk"};
+    sc_core::sc_in<bool>                    rst{"rst"};        // synchronous, active high
+    sc_core::sc_in<bool>                    en{"en"};          // count enable
+    sc_core::sc_in<sc_dt::sc_uint<8>>       prescale{"prescale"};
+    sc_core::sc_in<sc_dt::sc_uint<32>>      compare{"compare"};
+    sc_core::sc_out<sc_dt::sc_uint<32>>     count{"count"};
+    sc_core::sc_out<bool>                   irq{"irq"};         // one-clock tick pulse
+    sc_dt::sc_uint<32> count_ = 0;                              // CNT register
+    unsigned           div_   = 0;                              // prescaler counter
+
+    SC_HAS_PROCESS(SysTick);
+    explicit SysTick(sc_core::sc_module_name name);             // step11.cpp
+    void on_clk();                                              // step11.cpp
+};

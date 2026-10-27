@@ -4,6 +4,7 @@
 //   make play STEP=05    Counter
 //   make play STEP=06    AndGate + ResetSeq
 //   make play STEP=07    ClockGen
+//   make play STEP=11    SysTick (01+ Complete capstone)
 //
 // This is NOT the grader. Hidden tests check more cases (and use your own
 // personal values), so passing here doesn't guarantee full marks.
@@ -39,7 +40,7 @@ static void play_01_04() {
               << std::dec
               << "         saturating_add(100, 50)  = " << saturating_add(100, 50).to_uint() << "   (expect 150)\n"
               << "         saturating_add(200, 100) = " << saturating_add(200, 100).to_uint() << "   (expect 255)\n\n"
-              << "More: make play STEP=05 | 06 | 07\n";
+              << "More: make play STEP=05 | 06 | 07 | 11\n";
 }
 
 static void play_05() {
@@ -94,11 +95,32 @@ static void play_07() {
     std::cout << "         (expect rise at 0 s, fall at 2 ns, rise at 8 ns, fall at 10 ns, ...)\n";
 }
 
+static void play_11() {
+    sc_clock clk("clk", 10, SC_NS);                 // rising edges at 0, 10, 20 ... ns
+    sc_signal<bool> rst, en, irq;
+    sc_signal<sc_dt::sc_uint<8>> prescale;
+    sc_signal<sc_dt::sc_uint<32>> compare, count;
+    SysTick tick("systick");
+    tick.clk(clk); tick.rst(rst); tick.en(en); tick.prescale(prescale); tick.compare(compare);
+    tick.count(count); tick.irq(irq);
+
+    rst = true; en = true; prescale = 1; compare = 3;
+    sc_start(15, SC_NS);                           // edges at 0 and 10 ns with reset high
+    rst = false;
+    std::cout << "Step 11  SysTick(prescale = 1, compare = 3): count advances every 2 edges, irq every 8\n";
+    for (int i = 0; i < 18; ++i) {
+        sc_start(10, SC_NS);
+        std::cout << "         " << sc_time_stamp() << "  count = " << count.read() << (irq.read() ? "  irq!" : "") << "\n";
+    }
+    std::cout << "         (expect count 0,1,1,2,2,3,3,0... and irq exactly when it reloads from 3 to 0)\n";
+}
+
 int sc_main(int argc, char* argv[]) {
     std::string step = argc > 1 ? argv[1] : "";
     if      (step == "05") play_05();
     else if (step == "06") play_06();
     else if (step == "07") play_07();
+    else if (step == "11") play_11();
     else                   play_01_04();
     return 0;
 }

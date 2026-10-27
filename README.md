@@ -16,6 +16,10 @@ and reports your score on GitHub and in the studio.
 
 Keep the file names (`src/stepNN.cpp`) and the function names as they are; the repo name doesn't matter.
 
+**Repo created before step 11 existed?** Copy the new `src/step11.cpp` and `include/lab.h` from
+[this template](https://github.com/errbits/systemc-track01) into your repo (same paths), commit and push.
+Step 11 is part of **01+ Complete** and is graded once you've unlocked that track.
+
 ## 2 · Open your workspace
 
 **Codespace (easiest):** in your repo, **Code → Codespaces → Create codespace on main**.
@@ -50,6 +54,7 @@ make play SYSTEMC_HOME=/path/to/systemc-2.3.3
 | 05 · SC_MODULE, Ports, Processes | `src/step05.cpp` | `Counter` constructor + `on_clk()` |
 | 06 · SC_THREAD vs SC_METHOD | `src/step06.cpp` | `AndGate`, `ResetSeq` |
 | 07 · Signals, Events & Timing | `src/step07.cpp` | `ClockGen::run()` |
+| 11 · Capstone: SYS_TICK timer (**01+ Complete**) | `src/step11.cpp` | `SysTick` constructor + `on_clk()` |
 
 For each step, work in this loop from the terminal:
 
