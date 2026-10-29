@@ -1,13 +1,21 @@
 {
   "name": "ErrBits · SystemC Track 01",
   "image": "ghcr.io/errbits/systemc:2.3.3",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
   "postCreateCommand": "make build",
   "customizations": {
     "vscode": {
-      "extensions": ["ms-vscode.cpptools"],
+      "extensions": [
+        "ms-vscode.cpptools"
+      ],
       "settings": {
         "C_Cpp.default.cppStandard": "c++17",
-        "C_Cpp.default.includePath": ["${workspaceFolder}/include", "/opt/systemc/include"]
+        "C_Cpp.default.includePath": [
+          "${workspaceFolder}/include",
+          "/opt/systemc/include"
+        ]
       }
     }
   }
